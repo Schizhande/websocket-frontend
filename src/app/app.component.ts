@@ -25,7 +25,8 @@ export class AppComponent {
     let socket = new WebSocket("ws://localhost:8069/opn/v1/notifications/my-notifications");
     this.ws = Stomp.over(socket);
     let that = this;
-    this.ws.connect({token: "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0OTI0MjMyNiwiaWF0IjoxNjQ5MTU1OTI2fQ.rwkE8b6KkukNeSbenJ1geAlG4jx4pvt8Xp3CG5eUl7ie0LuAdPK5mrTSRRmB_jGtF3MowjBPVkYdY1KOTdvmew"}, function () {
+    this.ws.connect({token: "Auth token"
+    }, function () {
       that.ws.subscribe("/errors", function (message: { body: string; }) {
         alert("Error " + message.body);
       });
